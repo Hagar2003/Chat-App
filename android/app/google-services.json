@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242126486134",
+    "project_id": "scholar-app-bd12a",
+    "storage_bucket": "scholar-app-bd12a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242126486134:android:1edb4a98a54000b53cbd57",
+        "android_client_info": {
+          "package_name": "com.example.scholar_"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxboop_w94VtfiOEesk5FwVOWqfOxD3gA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242126486134:android:acf7660916e73d903cbd57",
+        "android_client_info": {
+          "package_name": "com.example.scholar_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxboop_w94VtfiOEesk5FwVOWqfOxD3gA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
