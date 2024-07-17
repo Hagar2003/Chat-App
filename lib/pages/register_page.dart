@@ -1,24 +1,41 @@
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scholar_app/widgets/custom_button.dart';
 import 'package:scholar_app/widgets/custom_text_field.dart';
 
 // ignore: must_be_immutable
-class RegisterScreen extends StatelessWidget {
-  RegisterScreen({
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({
     super.key,
   });
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   //VoidCallback? onTap;
   String? email;
+
   String? password;
+
+  bool isLoading = false;
+
+  GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            backgroundColor: const Color(0xff2B475E),
-            body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+        home: ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Scaffold(
+          backgroundColor: const Color(0xff2B475E),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Form(
+              key: formKey,
               child: Column(children: [
                 //  Image.asset(''),
                 const SizedBox(height: 200),
@@ -62,17 +79,30 @@ class RegisterScreen extends StatelessWidget {
 
                 CustomButton(
                   onTap: () async {
-                    try {
-                      var auth = FirebaseAuth.instance;
-                      UserCredential user =
-                          await auth.createUserWithEmailAndPassword(
-                              email: email!, password: password!);
-                    } catch (e) {
-                      //print(e);
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('there was an error ,try later')));
-                    }
-                    //  print(user.user!.displayName);
+                    if (formKey.currentState!.validate()) {
+                      isLoading = true;setState(() {
+                        
+                      });
+                      try {
+                        var auth = FirebaseAuth.instance;
+                        // ignore: unused_local_variable
+                        UserCredential user =
+                            await auth.createUserWithEmailAndPassword(
+                                email: email!, password: password!);
+                      } catch (e) {
+                        //print(e);
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content:
+                                    Text('there was an error ,try later')));
+                      }
+                      //  print(user.user!.displayName);
+
+                      isLoading = false;setState(() {
+                        
+                      });
+                    } else {}
                   },
                   text: 'Register',
                 ),
@@ -101,6 +131,8 @@ class RegisterScreen extends StatelessWidget {
                   ],
                 )
               ]),
-            )));
+            ),
+          )),
+    ));
   }
 }

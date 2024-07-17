@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:scholar_app/pages/chat_page.dart';
 import 'package:scholar_app/pages/login_page.dart';
 import 'package:scholar_app/pages/register_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,9 +20,11 @@ class ScholarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(debugShowCheckedModeBanner: false,
-      routes: {'LoginPage':(context) =>const LoginPage(),
-      'RegisterPage':(context) =>  RegisterScreen()},
-        initialRoute: 'LoginPage'
+      routes: {'LoginPage':(context) => LoginPage(),
+      'RegisterPage':(context) => const RegisterScreen(),
+      'ChatPage':(context)=>const ChatPage()},
+      //  initialRoute: 'LoginPage'
+      initialRoute: 'ChatPage',
       );
     
   }
