@@ -22,9 +22,9 @@ class ScholarApp extends StatelessWidget {
     return  MaterialApp(debugShowCheckedModeBanner: false,
       routes: {'LoginPage':(context) => LoginPage(),
       'RegisterPage':(context) => const RegisterScreen(),
-      'ChatPage':(context)=>const ChatPage()},
-      //  initialRoute: 'LoginPage'
-      initialRoute: 'ChatPage',
+      'ChatPage':(context)=> ChatPage()},
+        initialRoute: 'LoginPage'
+      
       );
     
   }

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:scholar_app/pages/chat_page.dart';
+//import 'package:scholar_app/pages/chat_page.dart';
 import 'package:scholar_app/pages/register_page.dart';
 import 'package:scholar_app/widgets/custom_button.dart';
 import 'package:scholar_app/widgets/custom_text_field.dart';
